@@ -1,0 +1,8 @@
+<div class="todo-item">
+  <div class="todo-txt" (click)="changeStatus(todo._id)">
+      <input type="checkbox" [value]="todo._id" [checked]="todo.status">{{todo.todoTxt}}
+  </div>
+  <div class="del-btn-div">
+    <button (click)="removeTodo(todo._id)" class="del-btn">DEL</button>
+  </div>
+</div>

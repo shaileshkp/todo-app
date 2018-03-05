@@ -1,0 +1,7 @@
+<div>
+  <h3 id="heading">Please input new todo</h3>
+  <form [formGroup]="todo" (ngSubmit)="onTodoAdd()">
+    <input type="text" id="txtInputTodo"  placeholder="Input Todo" formControlName="txtTodo">
+    <button type="submit" id="btnSubmit">ADD TODO</button>
+  </form>
+</div>

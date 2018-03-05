@@ -1,0 +1,9 @@
+<div>
+  <h2 style="text-align: center">TODO-LIST</h2>
+  <div>
+      <app-todo-item *ngFor="let todo of data" [todo]="todo"></app-todo-item>
+  </div>
+  <div class="inside">
+    <app-todo-actions></app-todo-actions>
+  </div>
+</div>

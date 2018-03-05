@@ -1,0 +1,20 @@
+.todo-item{
+    margin: 2px;
+    padding: 2px;
+    border: 1px solid slateblue;
+}
+
+.todo-item:hover{
+    background-color: paleturquoise;
+}
+
+.todo-txt, .del-btn-div {
+    display: inline;
+}
+
+.del-btn {
+    position: absolute;
+    right: 2px;
+    margin-right: 4px;
+    color: red;
+}

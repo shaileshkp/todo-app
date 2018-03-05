@@ -1,0 +1,17 @@
+* {
+    margin: 0px;
+}
+
+div {
+    background-color: gray;
+}
+h4{
+    display: inline;
+    margin: 8px;    
+}
+
+h3{
+    font-size: 30px;
+    display: inline;
+    margin-right: 10px;
+}

@@ -1,0 +1,7 @@
+* {
+    margin: 0px;
+}
+.inside {
+    position: absolute;
+    bottom: 2px;
+}
