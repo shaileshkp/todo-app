@@ -1,9 +1,12 @@
 <div>
   <h2 style="text-align: center">TODO-LIST</h2>
   <div>
-      <app-todo-item *ngFor="let todo of data" [todo]="todo"></app-todo-item>
+      <app-todo-item *ngFor="let todo of metaData" [todo]="todo"></app-todo-item>
   </div>
   <div class="inside">
-    <app-todo-actions></app-todo-actions>
+    <app-todo-actions
+    (completed)="onCompletedClick($event)"
+    (notCompleted)="onNotCompletedClick($event)"
+    ></app-todo-actions>
   </div>
 </div>

@@ -19,7 +19,18 @@ export class TodoItemComponent implements OnInit {
   }
   
   changeStatus(id) {
-    this.todoService.changeStatus(id)
+    this.todoService.changeStatus(id).subscribe(
+      (response) => {
+        if(response.status === 200) {
+          console.log('Updated ',id)
+        } else if(response.status === 404) {
+          
+        }  else {
+         
+        }
+      },
+      (error) => console.log(error)
+    );
   }
 
   removeTodo(id) {

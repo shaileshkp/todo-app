@@ -10,15 +10,6 @@ export class TodoService {
     url= "http://localhost:3000";
     constructor(private http: Http) { }
 
-    changeStatus(id) {
-        var i = 0;
-        for(var todo of this.data) {
-            if(todo['_id'] === id) {
-                this.data[i].status = !this.data[i].status
-            }
-            i++;
-        }
-    }
     getTodos() {
         return this.http.get(this.url+'/api/todos')
         .map(
@@ -36,9 +27,9 @@ export class TodoService {
     }
 
     addTodo(data){
-        // var headers = new Headers()
-        let headers = new Headers({ 'Accept': 'application/json' })
-        // headers.append('Content-Type', 'application/json')
+        var headers = new Headers()
+        headers.append('Content-Type', 'application/json')
+        // let headers = new Headers({ 'Accept': 'application/json' })
         var body = JSON.stringify(data)
         console.log("body::",body)
         console.log("\n\nURL TO SEARCH FOR:: ", this.url+'/api/todos')
@@ -62,9 +53,9 @@ export class TodoService {
     }
 
     removeTodo(id) {
-        // var headers = new Headers()
-        // headers.append('Content-Type', 'application/json')
-        let headers = new Headers({ 'Accept': 'application/json' });
+        var headers = new Headers()
+        headers.append('Content-Type', 'application/json')
+        // let headers = new Headers({ 'Accept': 'application/json' });
         return this.http.delete(this.url+'/api/todos/'+id, { headers: headers })
         .map(
             (response: Response) => {
@@ -72,8 +63,7 @@ export class TodoService {
                     var i = 0;
                     for(var todo of this.data) {
                         if(todo['_id'] === id) {
-                            this.data.slice(i,1)
-                            console.log(todo)
+                            this.data.splice(i,1)
                             break;
                         }
                         i++;
@@ -89,4 +79,31 @@ export class TodoService {
             }
         );
     }
+
+    changeStatus(id) {
+        var i = 0;
+        for(var todo of this.data) {
+            if(todo['_id'] === id) {
+                var newStatus = !this.data[i].status
+                var headers = new Headers()
+                headers.append('Content-Type', 'application/json')
+                return this.http.patch(this.url+'/api/todos/'+id, {status: newStatus}, { headers: headers })
+                .map(
+                    (response: Response) => {
+                        if(response.status === 200){
+                            this.data[i].status = newStatus
+                        }
+                        return response.status
+                    }
+                )
+                .catch(
+                    (error: Response) => {
+                        return Observable.throw('Something went wrong')
+                    }
+                );
+            }
+            i++;
+        }
+    }
+
 }

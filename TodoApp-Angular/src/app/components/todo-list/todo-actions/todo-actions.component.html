@@ -1,4 +1,14 @@
 <div>
-  <span class="options"><input type="checkbox" checked>Completed</span>
-  <span class="options"><input type="checkbox" checked>Not-completed</span>
+  <span class="options">
+    <input type="checkbox"
+    #completedCheck
+    (click)="onComplectedClick(completedCheck)"
+    checked>Completed
+  </span>
+  <span class="options">
+    <input type="checkbox"
+    #notCompletedCheck
+    (click)="onNotCompletedClick(notCompletedCheck)"
+    checked>Not-completed
+  </span>
 </div>
