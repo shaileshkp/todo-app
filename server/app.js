@@ -2,23 +2,17 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const morgan = require('morgan')
 const { MongoClient, ObjectID } = require('mongodb')
+const cors = require('cors')
 const url = 'mongodb://localhost:27017/TodoApp'
 
 const app = express()
+
+app.use(cors())
 
 // BodyParser Middleware
 app.use(morgan('dev'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: false}))
-app.use(express.static(__dirname+'/public'))
-
-//CORSE
-app.use((req,res,next) => {
-    res.header("Access-Control-Allow-Origin",'*');
-    res.header("Access-Control-Allow-Headers","Origin, X-Requested-With, Content-Type, Accept,X-Request-With, Authorization");
-    req.header('Access-Control-Allow-Methods',"GET, POST, PUT, DELETE");
-    next();
-});
 
 app.get('/api/todos', (req, res) => {
     MongoClient.connect(url, (err, db) => {
