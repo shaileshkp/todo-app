@@ -1,7 +1,7 @@
 <template>
     <div>
-        <h3>Todo App</h3>
-        <router-link to="/todos"><h4>Home</h4></router-link>
+        <router-link to="/"><h3>Vuejs Todo App</h3></router-link>
+        <router-link to="/"><h4>Home</h4></router-link>
         <router-link to="/add-todo"><h4>Add todo</h4></router-link>
     </div>
 </template>

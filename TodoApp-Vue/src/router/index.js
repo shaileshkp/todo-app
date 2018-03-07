@@ -8,10 +8,7 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
-      path: '/', redirect: '/todos'
-    },
-    {
-      path: '/todos', component: TodoList
+      path: '/',  component: TodoList
     },
     {
       path: '/add-todo', component: AddTodo

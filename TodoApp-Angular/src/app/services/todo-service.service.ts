@@ -7,7 +7,7 @@ import { Observable } from 'rxjs/Observable';
 export class TodoService {
     data: any[] = [ ]
 
-    url= "http://localhost:3000";
+    url= "https://still-inlet-86307.herokuapp.com";
     constructor(private http: Http) { }
 
     getTodos() {

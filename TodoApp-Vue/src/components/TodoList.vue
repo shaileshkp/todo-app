@@ -13,6 +13,7 @@
 <script>
     import TodoItem from './TodoItem.vue'
     import TodoAction from './TodoAction.vue'
+    import TodoService from '../services/TodoService'
     export default {
         data: function (){
             return {
@@ -24,8 +25,8 @@
             appTodoActions: TodoAction
         },
         created: function () {
-            this.$http.get('http://localhost:3000/api/todos').then(response => {
-                this.todos = response.data
+            TodoService.getTodos((res) => {                
+                this.todos = res
             })
         }
     }

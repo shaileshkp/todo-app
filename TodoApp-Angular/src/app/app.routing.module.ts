@@ -4,8 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { TodoListComponent } from '../app/components/todo-list/todo-list.component';
 import { AddTodoComponent } from '../app/components/add-todo/add-todo.component';
 const appRoutes: Routes = [
-    { path: '', redirectTo: '/todos', pathMatch: 'full'},
-    { path: 'todos', component: TodoListComponent },
+    { path: '', component: TodoListComponent, pathMatch: 'full'},
     { path: 'add-todo', component: AddTodoComponent }
 ];
 

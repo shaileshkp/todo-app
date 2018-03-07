@@ -7,6 +7,7 @@
     </div>
 </template>
 <script>
+import TodoService from '../services/TodoService'
 export default {
     data: function() {
         return {
@@ -15,13 +16,10 @@ export default {
     },
     methods: {
         addTodo() {
-            var todo = {
-                _id : 100,
-                todoTxt : this.todoTxt,
-                status : false
-            }
-
-            console.log('Todo Added',todo)
+            var todoTxt = this.todoTxt
+            TodoService.addTodos(todoTxt, res => {
+                console.log(res)
+            })
         }
     }
 }

@@ -9,14 +9,21 @@
     </div>
 </template>
 <script>
+import TodoService from '../services/TodoService'
 export default {
     props:["todo"],
     methods: {
         changeStatus(id) {
-            console.log(id)
+            console.log('changeStatus', id)
+            TodoService.updateTodos(id, res => {
+                console.log(res)
+            })
         },
         removeTodo(id) {
-            console.log(id)                
+            TodoService.deleteTodos(id, res => {
+                console.log(res)
+            })
+
         }
     }
 }
